@@ -631,3 +631,19 @@ Not implemented yet:
 A future registry-backed design would fetch manifest/config metadata, identify the platform-specific image and layers, map paths to the correct layer, retrieve content using a suitable indexable/random-access layer format or an explicit extraction strategy, verify content, cache it, and expose it through the filesystem to the container runtime.
 
 The intended goal is to reduce the image data required before startup. That benefit must be measured after the registry and runtime integration exists; it should not be inferred from the current file-read benchmark.
+
+
+## Demo Video
+
+Watch the end-to-end demo of the Lazy Container Runtime prototype:
+
+[▶ Watch the demo on YouTube](https://youtu.be/0ygrVJhJJAg)
+
+The demo covers:
+- Filesystem indexing and content-addressed blob storage
+- On-demand file fetching using FUSE
+- SHA-256 integrity verification and caching
+- Python and Ubuntu image testing
+- Benchmark results
+
+**Note:** This prototype demonstrates lazy filesystem access using an already-exported container filesystem. It does not implement native Docker/containerd lazy pulling.
