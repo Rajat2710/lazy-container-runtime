@@ -1,0 +1,16 @@
+.venv/
+__pycache__/
+*.py[cod]
+
+rootfs/
+store/
+cache/
+mnt/
+
+ubuntu-24.04-rootfs/
+ubuntu-24.04-store/
+ubuntu-cache/
+ubuntu-mnt/
+
+registry-cache/
+registry-demo/
