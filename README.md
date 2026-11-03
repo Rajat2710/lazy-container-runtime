@@ -295,7 +295,7 @@ PY
 For a selected path, look up its SHA-256 and compare the source file, stored blob, and cache entry. Replace the example path with one that exists:
 
 ```bash
-RELATIVE_PATH="etc/os-release"
+RELATIVE_PATH="usr/lib/os-release"
 HASH=$(python - "$RELATIVE_PATH" <<'PY'
 import json, sys
 from pathlib import Path
