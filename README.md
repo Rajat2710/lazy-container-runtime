@@ -618,7 +618,7 @@ Current implementation:
 - Stores one content-addressed blob per unique regular-file content.
 - Fetches complete file blobs on first read from the project's HTTP server.
 - Uses a local filesystem index, rather than a Docker Registry manifest and layer resolver.
-- Has read-only FUSE behavior and limited support for special files.
+- Fetches complete file on second read using cache mechanism saving HTTP server call overhead.
 - Has been demonstrated with an OCI `runc` bundle pointed at the mount.
 
 Not implemented yet:
@@ -626,7 +626,6 @@ Not implemented yet:
 - Registry authentication and manifest/config resolution as part of the LazyFS workflow.
 - Layer-aware path resolution, including overlay ordering and whiteout/deletion semantics.
 - Efficient random access to individual files inside ordinary compressed tar layers.
-- Native Docker/containerd integration through a snapshotter or equivalent runtime integration.
 - Comprehensive handling of all filesystem metadata and special files.
 
 A future registry-backed design would fetch manifest/config metadata, identify the platform-specific image and layers, map paths to the correct layer, retrieve content using a suitable indexable/random-access layer format or an explicit extraction strategy, verify content, cache it, and expose it through the filesystem to the container runtime.
